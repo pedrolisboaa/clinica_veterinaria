@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block titulo %}Login - PET{% endblock %} 
+
+{% block conteudo %}
+  
+    <div class="login-page">
+        
+        <img class="img_index" src="{% static 'img/pet-shop.png' %}" alt="" srcset="">
+
+        <div class="form" >
+            <form class="login-form" method="post" action="{% url 'index' %}">
+                {%csrf_token%}
+                <input type="text" name="username" placeholder="Usuario"/>
+                <input type="password" name="password"placeholder="Senha"/>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    
+{% endblock conteudo %}
+

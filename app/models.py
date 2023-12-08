@@ -2,6 +2,7 @@ from django.db import models
 
 
 
+
 # Create your models here.
 class Endereco(models.Model):
     cep = models.CharField(max_length=9)
