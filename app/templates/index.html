@@ -1,24 +1,39 @@
-{% extends "base.html" %} 
 {% load static %}
+<!DOCTYPE html>
 
-{% block titulo %}Login - PET{% endblock %} 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block conteudo %}
-  
-    <div class="login-page">
+    <!--Titulo página-->
+    <title>Login - PET</title>
+
+    <!--BOOTSTRAP E CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %} ">
+
+</head>
+<body>
+
+    <main class="container">
+        <div class="login-page">
         
-        <img class="img_index" src="{% static 'img/pet-shop.png' %}" alt="" srcset="">
-
-        <div class="form" >
-            <form class="login-form" method="post" action="{% url 'index' %}">
-                {%csrf_token%}
-                <input type="text" name="username" placeholder="Usuario"/>
-                <input type="password" name="password"placeholder="Senha"/>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    </div>
-
+            <img class="img_index" src="{% static 'img/pet-shop.png' %}" alt="" srcset="">
     
-{% endblock conteudo %}
-
+            <div class="form" >
+                <form class="login-form" method="post" action="{% url 'index' %}">
+                    {%csrf_token%}
+                    <input type="text" name="username" placeholder="Usuario"/>
+                    <input type="password" name="password"placeholder="Senha"/>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!--JAVASCRIPT-->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
