@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
+
+# FORMULARIOS 
+from .forms import EnderecoForm, TutorForm
 
 # Create your views here.
 
@@ -27,6 +30,26 @@ def home(request):
     return render(request, 'home.html')
 
 
-# ERROS--------------------------------------------------------------
-def custom_404(request, exception):
-    return render(request, '404.html', status=404)
+#TUTOR
+@login_required
+def tutor_cadastrar(request):
+    if request.method == 'POST':
+        endereco_form = EnderecoForm(request.POST)
+        tutor_form = TutorForm(request.POST)
+
+        if endereco_form.is_valid() and tutor_form.is_valid():
+            endereco = endereco_form.save()
+            tutor = tutor_form.save(commit=False)
+            tutor.endereco = endereco
+            tutor.save()
+            return redirect('home')
+    else:
+        endereco_form = EnderecoForm()
+        tutor_form = TutorForm()
+    
+    context = {
+        'endereco_form': endereco_form,
+        'tutor_form': tutor_form,
+    }
+
+    return render(request, 'tutor/tutor_cadastrar.html', context)

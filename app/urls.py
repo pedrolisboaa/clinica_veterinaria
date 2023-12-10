@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import index, home, custom_404
+from .views import index, home
 
-handler404 = custom_404
+# Tutor
+from . views import tutor_cadastrar
+
 
 urlpatterns = [
     # Login do sistema
@@ -10,5 +12,6 @@ urlpatterns = [
     # Home do sistemas
     path('home/', home, name='home'),
     
-    # Erros
+    # Tutores
+    path('tutor_cadastrar', tutor_cadastrar, name='tutor_cadastrar')
 ]

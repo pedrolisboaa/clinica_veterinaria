@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block titulo %}Novo - Tutor{% endblock titulo %}
+
+{% block conteudo %}
+    
+    <div class="container">
+        <h1>Cadastrar novo Cliente</h1>
+        <form action="{% url 'tutor_cadastrar' %}" method="POST">
+            {% csrf_token %} 
+            {{tutor_form.as_p}}
+            {{endereco_form.as_p}}
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+{% endblock conteudo %}
