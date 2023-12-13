@@ -1,3 +1,21 @@
 form{
     padding: 30px 20px 0 20px;
 }
+
+.btn{
+    margin-top: 15px;
+}
+
+/*COLUNAS DO FORMULARIO DE TUTOR*/
+.nome-col {
+    width: 15%; /* Ajuste o valor conforme necessário */
+}
+
+.outro-td {
+    width: 16%; /* Ajuste o valor conforme necessário */
+    text-align: center;
+}
+
+.outro-td img {
+    margin: 0 15px;
+}

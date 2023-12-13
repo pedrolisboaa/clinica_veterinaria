@@ -9,5 +9,5 @@ class EndenrecoAdmin(admin.ModelAdmin):
 
 @admin.register(Tutor)
 class TutorAdmin(admin.ModelAdmin):
-    list_display = ['nome', 'cpf', 'email', 'endereco', 'data_de_nascimento', 'data_de_cadastro']
+    list_display = ['nome', 'cpf', 'contato', 'email', 'endereco', 'data_de_nascimento', 'data_de_cadastro']
     list_editable = ['endereco',]

@@ -18,10 +18,13 @@ class EnderecoForm(forms.ModelForm):
 class TutorForm(forms.ModelForm):
     class Meta:
         model = Tutor
-        fields = ['nome', 'cpf', 'email', 'data_de_nascimento',]
+        fields = ['nome', 'cpf', 'contato' ,'email', 'data_de_nascimento',]
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome Completo'}),
             'cpf': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CPF'}),
+            'contato': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefone'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'E-mail'}),
-            'data_de_nascimento': forms.DateInput(attrs={'class': 'form-control','type':'date' ,'placeholder': 'Data denascimento'}),
+            'data_de_nascimento': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'placeholder': 'Data de Nascimento', 'format': 'yyyy-mm-dd'}),
+
+
         }

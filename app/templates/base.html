@@ -25,6 +25,9 @@
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+    <!--FAVICON-->
+    <link rel="shortcut icon" href="{% static 'img/pet_favicon.png' %}" type="image/x-icon">
+
 </head>
 
 <body id="page-top">
@@ -61,7 +64,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu Tutores:</h6>
                         <a class="collapse-item" href="{% url 'tutor_cadastrar' %}">Novo Tutor</a>
-                        <a class="collapse-item" href="#">Buscar Tutor</a>
+                        <a class="collapse-item" href="{% url 'tutor_listar' %}">Buscar Tutor</a>
                     </div>
                 </div>
             </li>

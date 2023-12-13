@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Tutores{% endblock titulo %}
+
+{% block conteudo %}
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tutores</h6>
+        </div>
+        
+        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+            <thead>
+                <tr role="row">
+                    <th class="nome-col">Nome</th>
+                    <th>Contato</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Data de Nascimento</th>
+                    <th>Outros</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for tutor in tutores %}
+                    <tr>
+                        <td>{{tutor.nome}}</td>
+                        <td>{{tutor.contato}}</td>
+                        <td>{{tutor.cpf}}</td>
+                        <td>{{tutor.email}}</td>
+                        <td>{{tutor.data_de_nascimento}}</td>
+                        <td class="outro-td">
+                            <a href="#"><img src="{% static 'img/pets.png' %}" alt=""></a>
+                            <a href="{% url 'tutor_editar' tutor.id %}"><img src="{% static 'img/edit.png' %}" alt=""></a>
+                            <a href="{% url 'tutor_deletar' tutor.id %}"><img src="{% static 'img/delete.png' %}" alt=""></a>
+          
+                        </td>
+                {% endfor %}
+        </table>
+        
+        
+       
+
+        </div>
+    </div>
+
+{% endblock conteudo %}

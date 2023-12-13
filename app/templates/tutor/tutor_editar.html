@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block titulo %}Editar - {{ tutor.nome }}{% endblock titulo %}
+
+{% block conteudo %}
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Editar - {{ tutor.nome }}</h6>
+        </div>
+        
+        <div class="form-group">
+            <form action="{% url 'tutor_editar' tutor.id %}" method="POST">
+                {% csrf_token %} 
+                {{ form }}
+                {{ endereco_form }}
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock conteudo %}
