@@ -25,13 +25,12 @@
             <tbody>
                 {% for tutor in tutores %}
                     <tr>
-                        <td>{{tutor.nome}}</td>
+                        <td><a href="{% url 'tutor_unico' tutor.id %}">{{tutor.nome}}</a></td>
                         <td>{{tutor.contato}}</td>
                         <td>{{tutor.cpf}}</td>
                         <td>{{tutor.email}}</td>
                         <td>{{tutor.data_de_nascimento}}</td>
                         <td class="outro-td">
-                            <a href="#"><img src="{% static 'img/pets.png' %}" alt=""></a>
                             <a href="{% url 'tutor_editar' tutor.id %}"><img src="{% static 'img/edit.png' %}" alt=""></a>
                             <a href="{% url 'tutor_deletar' tutor.id %}"><img src="{% static 'img/delete.png' %}" alt=""></a>
           

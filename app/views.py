@@ -104,3 +104,22 @@ def tutor_deletar(request, id_tutor):
         tutor.delete()
         return redirect('tutor_listar')
     return render(request, 'tutor/tutor_deletar.html', {'tutor':tutor})
+
+
+@login_required
+def tutor_unico(request, id_tutor):
+    tutor = Tutor.objects.filter(pk=id_tutor).first()
+    
+    context = {
+        'tutor': tutor,
+    }
+    
+    return render(request, 'tutor/tutor_unico.html', context)
+
+
+# PET----------------------------------------------------------------
+@login_required
+def pet_cadastrar(request, id_tutor):
+    
+    print(id_tutor)
+    return render(request, 'pet/pet_cadastrar.html')

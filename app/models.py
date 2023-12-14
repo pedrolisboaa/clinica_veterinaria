@@ -10,7 +10,7 @@ class Endereco(models.Model):
 
     def __str__(self):
         return f'{self.cidade} - {self.complemento}'
-    
+
 
 class Tutor(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
@@ -21,5 +21,26 @@ class Tutor(models.Model):
     data_de_nascimento = models.DateField(null=False, blank=False)
     data_de_cadastro = models.DateField(auto_now_add=True)
     
+
+    
     def __str__(self):
         return self.nome
+    
+    
+class Pet(models.Model):
+    ESCOLHA_SEXO = (
+        ("M", 'Masculino'),
+        ("F", 'Feminino'),
+    )
+    
+    ESPECIE = (
+        ("G", 'Gato'),
+        ("C", 'Cachorro'),
+        ("E", 'Exótico'),
+    )
+    nome = models.CharField(max_length=100, null=False, blank=False)
+    sexo = models.CharField(max_length=1, choices=ESCOLHA_SEXO)
+    especie = models.CharField(max_length=1, choices=ESPECIE)
+    cor = models.CharField(max_length=100, null=False, blank=False)
+    tutor = models.ForeignKey(Tutor, on_delete=models.CASCADE, default=None)
+    
